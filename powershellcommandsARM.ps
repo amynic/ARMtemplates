@@ -1,0 +1,11 @@
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionID {subscription-id}
+
+New-AzureRmResourceGroup -Name ExampleGroup -Location "Central US"
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json
+
+Get-AzureRmResourceGroup -Name ExampleGroup
+Find-AzureRmResource -ResourceGroupNameEquals ExampleGroup
+
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment2 -ResourceGroupName ExampleGroup -TemplateFile c:\MyTemplates\azuredeploy.json -storageNamePrefix "contoso" -storageSKU "Standard_GRS"
